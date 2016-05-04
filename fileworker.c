@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 int* readfile(char* filename, int size){
     FILE* file=fopen(filename, "r");
@@ -15,7 +17,7 @@ int* readfile(char* filename, int size){
     while(fgets(buffer, 30, file) != NULL){
         int j = 0;
         int i = 0;
-        for(i; i<strlen(buffer)-1; i++){
+        for(i=i; i<strlen(buffer)-1; i++){
              if(isdigit(buffer[i]) > 0 || buffer[i] == '0'){
                   num[j] = buffer[i];
                     j++;
