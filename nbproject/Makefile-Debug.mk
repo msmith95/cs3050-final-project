@@ -58,11 +58,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs3050-final-project
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/mdsf3f_rrsqp4_jdckw4_project
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs3050-final-project: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/mdsf3f_rrsqp4_jdckw4_project: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs3050-final-project ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/mdsf3f_rrsqp4_jdckw4_project ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/fileworker.o: fileworker.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -85,7 +85,7 @@ ${OBJECTDIR}/main.o: main.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs3050-final-project
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/mdsf3f_rrsqp4_jdckw4_project
 
 # Subprojects
 .clean-subprojects:

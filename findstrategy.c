@@ -5,7 +5,7 @@
 int* r1(int* prices, int n) {     
   int max = prices[1] - prices[0];
   int i, j;
-  int strategy[2];
+  int* strategy = malloc(sizeof(int) * 2);
   for(i = 0; i < n; i++)
   {
     for(j = i+1; j < n; j++)
@@ -16,13 +16,15 @@ int* r1(int* prices, int n) {
         strategy[1] = j;
       }
     }    
-  }          
+  }
+  if(prices[strategy[1]] - prices[strategy[0]] < 0){
+     strategy[0] = -1; 
+  }
   return strategy;
 }
-struct BuySellPair* rPlus(int* prices, int n) {
+struct BuySellPair* rPlus(int* prices, int n, int r, int* size) {
     int count = 0;
-    
-    struct BuySellPair strategy[n/2 + 1];
+    struct BuySellPair* strategy = malloc(sizeof(struct BuySellPair) *(n/2 + 1));
     int i = 0;
     while(i < n - 1) {
         while((i < n - 1) && (prices[i + 1] <= prices[i])) {
@@ -30,6 +32,10 @@ struct BuySellPair* rPlus(int* prices, int n) {
         }
         
         if(i == n - 1) {
+            if(count == 0){
+                strategy[0].buy = -1;
+            }
+            printf("strat: %d  count: %d\n", strategy[0].buy, count);
             break;
         }
         
@@ -41,8 +47,12 @@ struct BuySellPair* rPlus(int* prices, int n) {
         
         strategy[count].sell = i - 1;
         
-        count++;   
+        count++;
+        if(count >= r){
+            break;
+        }
     }
+    *size = count;
     return strategy;
             
 }

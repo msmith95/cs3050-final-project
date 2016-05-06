@@ -25,7 +25,7 @@ struct BuySellPair {
 };
 
 int* r1(int arr[], int arr_size);
-struct BuySellPair* rPlus(int* prices, int n);
+struct BuySellPair* rPlus(int* prices, int n, int r, int* size);
 
 
 #ifdef __cplusplus
