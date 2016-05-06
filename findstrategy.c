@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "findstrategy.h"
 
+
+/*
+ * This function will fun through every index in the array that it is given
+ * it will also search every i + 1 indexs and search for the best combination
+ * it will save the best combination and return
+ */
 int* r1(int* prices, int n) {     
   int max = prices[1] - prices[0];
   int i, j;
@@ -22,6 +28,17 @@ int* r1(int* prices, int n) {
   }
   return strategy;
 }
+
+
+/*
+ *This function will handle all cases where r > 1
+ * it will look for patterns, it the set of prices is going down 
+ * it will keep looking until it hits a number where the price goes up
+ * it will save that lowest number as a buy day, then it will do the opposite for 
+ * sell days. The function will search while the prices are going up and when it hits a 
+ * number that is lower than one it previously looked it, it will save the higher number 
+ * as a sell day. This will repeat for r times
+ */
 struct BuySellPair* rPlus(int* prices, int n, int r, int* size) {
     int count = 0;
     struct BuySellPair* strategy = malloc(sizeof(struct BuySellPair) *(n/2 + 1));

@@ -5,6 +5,12 @@
 #include "findstrategy.h"
 #include "input_error.h"
 
+/*
+ *This function will take in a file and an array size
+ * the data in the file will be saved to an array then returned to be worked with
+ * This function will exit with error codes if it encounters any problems or bad data input
+ */
+
 int* readfile(char* filename, int size){
     FILE* file=fopen(filename, "r");
     if(file == NULL){
