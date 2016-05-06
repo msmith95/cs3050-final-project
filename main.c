@@ -17,12 +17,11 @@
  */
 int main(int argc, char** argv) {
 
-    if(argc != 5){
+    if(argc != 4){
         exit(INCORRECT_NUMBER_OF_COMMAND_LINE_ARGUMENTS);
     }
     int r =  atoi(argv[2]);
     int n =  atoi(argv[1]);
-    char* outputFile = argv[4];
     int* inputDays = readfile(argv[3], n);
     int* buyselldays;
     int numTrades;
@@ -32,11 +31,21 @@ int main(int argc, char** argv) {
     }
    if(r == 1){
          buyselldays = r1(inputDays, n);
-         printFile(outputFile, inputDays, 2);
+         if(buyselldays[0] == -1){
+             printf("No profitable trades found.");
+         }else{
+             printf("%d\n%d\n", buyselldays[0]+1, buyselldays[1]+1);
+         }
          cleanupR1(inputDays, buyselldays);
     }else if(r > 1){
          struct BuySellPair* days = rPlus(inputDays, n, r, &numTrades); 
-         printFileR2(outputFile, days, numTrades);
+         int i;
+         if(numTrades == 0){
+             printf("No profitable trades found.");
+         }
+         for(i=0; i<numTrades; i++){
+             printf("%d\n%d\n", days[i].buy+1, days[i].sell+1);
+         }
          cleanupR2(inputDays, days);
     }
     

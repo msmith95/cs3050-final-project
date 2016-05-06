@@ -13,8 +13,6 @@ extern "C" {
 #endif
 
 int* readfile(char* filename, int size);
-void printFileR2(char* filename, struct BuySellPair* days, int size);
-void printFile(char* filename, int* tradeDays, int size);
 
 
 #ifdef	__cplusplus

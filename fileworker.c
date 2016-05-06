@@ -42,44 +42,9 @@ int* readfile(char* filename, int size){
         free(days);
         exit(PARSING_ERROR_EMPTY_FILE);
     }
-    fclose(file);
+    int close = fclose(file);
+    if(close != 0){
+        exit(FILE_FAILED_TO_CLOSE);
+    }
     return days;
-}
-
-void printFile(char* filename, int* tradeDays, int size){
-    FILE* file=fopen(filename, "w");
-    if(file == NULL){
-        return;
-    }
-    
-    int i;
-    if(tradeDays[0]== -1){
-        fprintf(file, "%s\n", "No profitable trading solution found");
-    }else{
-        for(i=0; i<size; i++){
-             fprintf(file, "%d\n", tradeDays[i]);
-         }
-    }
-    
-    fclose(file);
-}
-
-void printFileR2(char* filename, struct BuySellPair* days, int size){
-    FILE* file=fopen(filename, "w");
-    if(file == NULL){
-        return;
-    }
-    
-    int i;
-    if(days[0].buy == -1){
-        fprintf(file, "%s\n", "No profitable trading solution found");
-    }else{
-        for(i=0; i<size; i++){
-             fprintf(file, "%d\n %d\n", days[i].buy, days[i].sell);
-         }
-        printf("%d\n", days[0].buy);
-        fprintf(file, "%s\n", "End of file");
-    }
-    
-    fclose(file);
 }

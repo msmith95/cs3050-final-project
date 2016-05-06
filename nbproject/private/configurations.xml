@@ -27,10 +27,10 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" </runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" 6 1 prices.txt</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH}" 6 2 prices.txt</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" 6 2 prices.txt output.txt</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" 6 2 prices.txt</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}" 6 2 prices.txt output.txt</runcommand>
+        <runcommand>"${OUTPUT_PATH}" 6 2 prices.txt</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>
