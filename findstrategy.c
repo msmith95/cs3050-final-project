@@ -35,7 +35,6 @@ struct BuySellPair* rPlus(int* prices, int n, int r, int* size) {
             if(count == 0){
                 strategy[0].buy = -1;
             }
-            printf("strat: %d  count: %d\n", strategy[0].buy, count);
             break;
         }
         

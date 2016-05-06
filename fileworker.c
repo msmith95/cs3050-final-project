@@ -3,11 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 #include "findstrategy.h"
+#include "input_error.h"
 
 int* readfile(char* filename, int size){
     FILE* file=fopen(filename, "r");
     if(file == NULL){
-        return NULL;
+        exit(FILE_FAILED_TO_OPEN);
     }
     
     char num[30];
@@ -24,7 +25,8 @@ int* readfile(char* filename, int size){
                     j++;
                     
              }else{
-                 return NULL;
+                 free(days);
+                 exit(PARSING_ERROR_INVALID_FORMAT);
              }
         }
         num[j] = '\0';
@@ -33,8 +35,14 @@ int* readfile(char* filename, int size){
         
     }
     if(d != size){
-        exit(128);
+        free(days);
+        exit(INVALID_COMMAND_LINE_ARGUMENTS);
     }
+    if(d == 0){
+        free(days);
+        exit(PARSING_ERROR_EMPTY_FILE);
+    }
+    fclose(file);
     return days;
 }
 

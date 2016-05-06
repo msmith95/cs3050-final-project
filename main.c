@@ -10,12 +10,16 @@
 #include "findstrategy.h"
 #include "fileworker.h"
 #include "main.h"
+#include "input_error.h"
 
 /*
  * 
  */
 int main(int argc, char** argv) {
 
+    if(argc != 5){
+        exit(INCORRECT_NUMBER_OF_COMMAND_LINE_ARGUMENTS);
+    }
     int r =  atoi(argv[2]);
     int n =  atoi(argv[1]);
     char* outputFile = argv[4];
